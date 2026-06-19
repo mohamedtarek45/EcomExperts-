@@ -16,7 +16,16 @@ const sumPrice = (products: ProductItem[]) =>
 
 const sumOldPrice = (products: ProductItem[]) =>
   products.reduce(
-    (acc, curr) => acc + (curr.oldPrice ?? curr.price) * (curr.quantity ?? 1),
+    (acc, curr) => {
+      if(curr.variants){
+        curr.variants.forEach(variant => {
+          acc += (curr.oldPrice ?? curr.price) * variant.quantity;
+        })
+      }else{
+        acc += (curr.oldPrice ?? curr.price) * (curr.quantity ?? 1)
+      }
+      return acc;
+    },
     0,
   );
 
