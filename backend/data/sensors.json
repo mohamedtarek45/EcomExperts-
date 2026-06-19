@@ -1,0 +1,25 @@
+{
+  "products": [
+    {
+      "id": "wyze-sense-motion-sensor",
+      "name": "Wyze Sense Motion Sensor",
+      "description": "Detects motion up to 26 ft away with a 120° field of view.",
+      "badge": null,
+      "oldPrice": null,
+      "price": 59.98,
+      "image": "/images/Wyze Sense Motion Sensor.webp"
+    },
+    {
+      "id": "wyze-sense-hub",
+      "name": "Wyze Sense Hub (Required)",
+      "description": "The hub that connects all your Wyze Sense devices.",
+      "badge": null,
+      "oldPrice": 29.92,
+      "price": 0,
+      "priceLabel": "FREE",
+      "image": "/images/Wyze Sense Hub.webp",
+      "isFree": true,
+      "MAX_QUANTITY": 1
+    }
+  ]
+}

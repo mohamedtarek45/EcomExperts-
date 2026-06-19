@@ -1,0 +1,42 @@
+# Dependencies
+backend/node_modules/
+frontend/node_modules/
+
+# Environment variables
+backend/.env
+frontend/.env
+backend/.env.*
+frontend/.env.*
+
+# Build files
+frontend/dist/
+backend/dist/
+backend/build/
+frontend/build/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Coverage
+coverage/
+
+# Cache
+.cache/
+.parcel-cache/
+
+# Vite
+frontend/.vite/
+
+# TypeScript
+*.tsbuildinfo

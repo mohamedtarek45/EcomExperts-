@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": "cam-plus-monthly",
+      "name": "Cam Unlimited",
+      "description": "Unlimited event video recordings and smart AI detection.",
+      "badge": "Most Popular",
+      "oldPrice": 12.99,
+      "price": 9.99
+    },
+    {
+      "id": "cam-protect",
+      "name": "Cam Protect",
+      "description": "Professional home monitoring with emergency dispatch.",
+      "badge": null,
+      "oldPrice": null,
+      "price": 15.99
+    },
+    {
+      "id": "no-plan",
+      "name": "No Subscription",
+      "description": "Use your camera without a monthly plan.",
+      "badge": null,
+      "oldPrice": null,
+      "price": 0
+    }
+  ]
+}

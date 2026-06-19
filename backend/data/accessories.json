@@ -1,0 +1,13 @@
+{
+  "products": [
+    {
+      "id": "wyze-microsd-card-256gb",
+      "name": "Wyze MicroSD Card (256GB)",
+      "description": "Store up to 256GB of local footage directly on your Wyze Cam.",
+      "badge": null,
+      "comparePrice": null,
+      "price": 41.96,
+      "image": "/images/Wyze microSD Card.webp"
+    }
+  ]
+}
