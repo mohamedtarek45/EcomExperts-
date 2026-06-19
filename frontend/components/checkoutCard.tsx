@@ -1,8 +1,18 @@
 import { useBundleStore } from "../store/bundleStore";
 import type { ProductItem } from "../types/types";
 import toast from "react-hot-toast";
+
 const sumPrice = (products: ProductItem[]) =>
-  products.reduce((acc, curr) => acc + curr.price * (curr.quantity ?? 1), 0);
+  products.reduce((acc, curr) => {
+    if(curr.variants){
+      curr.variants.forEach(variant => {
+        acc += curr.price * variant.quantity;
+      })
+    }else{
+      acc += curr.price * (curr.quantity ?? 1);
+    }
+    return acc;
+  }, 0);
 
 const sumOldPrice = (products: ProductItem[]) =>
   products.reduce(
@@ -12,8 +22,9 @@ const sumOldPrice = (products: ProductItem[]) =>
 
 const CheckoutCard = () => {
   const bundle = useBundleStore((state) => state.bundle);
+  console.log("bundle", bundle.cameras.products);
   const reset = useBundleStore((state) => state.reset);
-
+  
   const cameraTotal = sumPrice(bundle.cameras.products);
   const sensorTotal = sumPrice(bundle.sensors.products);
   const accessoryTotal = sumPrice(bundle.accessories.products);
