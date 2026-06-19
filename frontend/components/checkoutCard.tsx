@@ -4,36 +4,33 @@ import toast from "react-hot-toast";
 
 const sumPrice = (products: ProductItem[]) =>
   products.reduce((acc, curr) => {
-    if(curr.variants){
-      curr.variants.forEach(variant => {
+    if (curr.variants) {
+      curr.variants.forEach((variant) => {
         acc += curr.price * variant.quantity;
-      })
-    }else{
+      });
+    } else {
       acc += curr.price * (curr.quantity ?? 1);
     }
     return acc;
   }, 0);
 
 const sumOldPrice = (products: ProductItem[]) =>
-  products.reduce(
-    (acc, curr) => {
-      if(curr.variants){
-        curr.variants.forEach(variant => {
-          acc += (curr.oldPrice ?? curr.price) * variant.quantity;
-        })
-      }else{
-        acc += (curr.oldPrice ?? curr.price) * (curr.quantity ?? 1)
-      }
-      return acc;
-    },
-    0,
-  );
+  products.reduce((acc, curr) => {
+    if (curr.variants) {
+      curr.variants.forEach((variant) => {
+        acc += (curr.oldPrice ?? curr.price) * variant.quantity;
+      });
+    } else {
+      acc += (curr.oldPrice ?? curr.price) * (curr.quantity ?? 1);
+    }
+    return acc;
+  }, 0);
 
 const CheckoutCard = () => {
   const bundle = useBundleStore((state) => state.bundle);
   console.log("bundle", bundle.cameras.products);
   const reset = useBundleStore((state) => state.reset);
-  
+
   const cameraTotal = sumPrice(bundle.cameras.products);
   const sensorTotal = sumPrice(bundle.sensors.products);
   const accessoryTotal = sumPrice(bundle.accessories.products);
@@ -49,7 +46,7 @@ const CheckoutCard = () => {
   const total = cameraTotal + sensorTotal + accessoryTotal + planTotal;
   const oldTotal =
     oldCameraTotal + oldSensorTotal + oldAccessoryTotal + oldPlanTotal;
-  const savings = oldTotal - total;
+  const savings = oldTotal - total + SHIPPING;
   console.log("bundle", bundle);
   const handleCheckout = () => {
     const hasItems =

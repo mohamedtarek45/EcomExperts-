@@ -4,6 +4,18 @@
  
 ---
  
+## 🚀 Deployment
+ 
+
+### 🎨 Frontend
+- Deployed on **Vercel** *(Bonus)*
+- 👉 Live Demo: [https://ecom-experts-frontend.vercel.app](https://ecom-experts-frontend.vercel.app)
+### 🖥️ Backend
+- Deployed as separate API *(Bonus)*
+- 👉 API Base URL: [https://ecom-experts-backend.vercel.app](https://ecom-experts-backend.vercel.app)
+---
+
+
 ## 🛠️ Tech Stack
  
 ### 🎨 Frontend
@@ -26,6 +38,8 @@
 | 📄 JSON Files | Mock Data |
  
 ---
+
+
  
 ## ✨ Features
  
@@ -76,16 +90,26 @@ project/
 │
 └── README.md
 ```
+ ---
+
+## ⚙️ Environment Variables
  
----
+### 🎨 Frontend
+ 
+Create a `.env` file inside the `frontend/` directory:
+ 
+```env
+VITE_BACKEND_URL=http://localhost:3000
+```
+ ---
  
 ## 🚀 Getting Started
  
 ### 1️⃣ Clone Repository
  
 ```bash
-git clone <repository-url>
-cd <project-name>
+git clone https://github.com/mohamedtarek45/EcomExperts.git
+cd EcomExperts
 ```
  
 ### 2️⃣ Install Dependencies
