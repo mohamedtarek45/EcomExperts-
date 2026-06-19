@@ -30,16 +30,23 @@ const CheckoutCard = () => {
   const oldTotal =
     oldCameraTotal + oldSensorTotal + oldAccessoryTotal + oldPlanTotal;
   const savings = oldTotal - total;
-
+  console.log("bundle", bundle);
   const handleCheckout = () => {
-    if (total > 0) {
-      reset();
-      localStorage.removeItem("bundle");
-      toast.success("Checkout Successful!");
-    } else {
-      toast.error("Please add products to your bundle");
+    const hasItems =
+      bundle.plan ||
+      bundle.cameras.products.length > 0 ||
+      bundle.sensors.products.length > 0 ||
+      bundle.accessories.products.length > 0;
+
+    if (!hasItems) {
+      toast.error("Please add products to your cart ");
+      return;
     }
-  }
+
+    reset();
+    localStorage.removeItem("bundle");
+    toast.success("Checkout Successful!");
+  };
 
   return (
     <div className="mt-2.5">
@@ -54,12 +61,12 @@ const CheckoutCard = () => {
 
         <div className="flex flex-col gap-2">
           <div className="rounded-[3px] bg-[#4E2FD2] text-white text-[12px] tracking-[-5%] text-center py-1.25 font-medium">
-            {planTotal ? "as low as " +planTotal+ "/mo":"Select a plan"}
+            {planTotal ? "as low as " + planTotal + "/mo" : "Select a plan"}
           </div>
 
           <div className="flex gap-2 items-end">
             <p className="text-[18px] text-[#6F7882] font-medium line-through tracking-[-0.25%]">
-              {total > 0 ?"$"+(oldTotal + SHIPPING).toFixed(2):""}
+              {total > 0 ? "$" + (oldTotal + SHIPPING).toFixed(2) : ""}
             </p>
 
             <p className="text-[24px] font-bold text-[#4E2FD2] tracking-[-0.13%]">
@@ -82,8 +89,6 @@ const CheckoutCard = () => {
       >
         Checkout
       </button>
-
-
     </div>
   );
 };
